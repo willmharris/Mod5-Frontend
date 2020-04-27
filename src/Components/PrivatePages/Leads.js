@@ -1,10 +1,11 @@
 import React from 'react'
 
 function Leads() {
-    
+
+
     return(
         <div>
-            Leads
+            {`${window.location.pathname.substring(13)}`}
         </div>
     )
 }

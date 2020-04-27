@@ -1,32 +1,15 @@
 import React, { Component } from 'react'
-import  {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 
 class AdminHome extends Component {
     
-    constructor() {
-        super()
-        this.state = {
-          leads: null,
-          clients: null,
-          cases: null
-        }
-    }
-    
-    getLeads = () => {
-        fetch('http://localhost:3000/users?type=leads').then(
-            resp => resp.json()
-        ).then(
-            data => this.setState({leads: data})
-        )
-    }
-
     displayLeads = () => {
         return (
             <div> 
-                {this.state.leads.map(lead => {
+                {this.props.leads.map(lead => {
                     return (
-                        <NavLink to={`/leads/${lead.id}`} exact>
+                        <NavLink to={`/admin/leads/${lead.id}`} exact>
                             {lead.first_name} {lead.last_name}
                         </NavLink> 
                     )
@@ -34,19 +17,11 @@ class AdminHome extends Component {
             </div>
         )
     }
-    
-    getClients = () => {
-        fetch('http://localhost:3000/users?type=clients').then(
-            resp => resp.json()
-        ).then( 
-            data => this.setState({clients: data})
-        )
-    }
 
     displayClients = () => {
         return (
             <div> 
-                {this.state.clients.map(client => {
+                {this.props.clients.map(client => {
                     return (
                         <div>{client.first_name} {client.last_name}</div>
                     )
@@ -55,18 +30,10 @@ class AdminHome extends Component {
         )
     }
 
-    getCases = () => {
-        fetch('http://localhost:3000/cases').then(
-            resp => resp.json()
-        ).then( 
-            data => this.setState({cases: data})
-        )
-    }
-
     displayCases = () => {
         return (
             <div> 
-                {this.state.cases.map(client => {
+                {this.props.cases.map(client => {
                     return (
                     <div>Id: {client.id} Created: {client.created_at}</div> 
                     )
@@ -74,19 +41,19 @@ class AdminHome extends Component {
             </div>
         )
     }
-    
+
     render() {
         return(
             <div>
-                <div onClick={this.getLeads}>Get Leads</div>
-                <div onClick={this.getClients}>Get Clients</div>
-                <div onClick={this.getCases}>Get Cases</div>
+                <div onClick={this.props.getLeads}>Get Leads</div>
+                <div onClick={this.props.getClients}>Get Clients</div>
+                <div onClick={this.props.getCases}>Get Cases</div>
                 <br/><br/>  
-                {this.state.leads ? this.displayLeads() : null}
+                {this.props.leads ? this.displayLeads() : null}
                 <br/><br/>  
-                {this.state.clients ? this.displayClients() : null}
+                {this.props.clients ? this.displayClients() : null}
                 <br/><br/>  
-                {this.state.cases ? this.displayCases() : null}
+                {this.props.cases ? this.displayCases() : null}
             </div>
         )
     }

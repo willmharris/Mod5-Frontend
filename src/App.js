@@ -30,7 +30,7 @@ function App() {
           <NavLink to="/get-in-touch" exact>Get in touch </NavLink>
           <NavLink to="/schedule-a-call" exact>Schedule a call </NavLink>
           <NavLink to="/login" exact>Login </NavLink>
-          <NavLink to="/admin-container" exact>Admin Container</NavLink>
+          <NavLink to="/admin" exact>Admin Container</NavLink>
          
         </div>
         <br/>
@@ -44,7 +44,7 @@ function App() {
           <Route exact path="/get-in-touch" render={GetInTouch} />
           <Route exact path="/schedule-a-call" render={ScheduleACall} />
           <Route exact path="/login" render={Login} />
-          <Route exact path="/admin" render={() => <AdminContainer />} />
+          <Route path="/admin" render={() => <AdminContainer />} />
         </div>
       </Router>
     </div>
