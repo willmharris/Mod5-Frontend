@@ -55,7 +55,7 @@ class AdminContainer extends Component {
                 </div> 
                 <div>
                     <Route exact path="/admin" render={() => <AdminHome getLeads={this.getLeads} getClients={this.getClients} getCases={this.getCases} leads={this.state.leads} clients={this.state.clients} cases={this.state.cases}/>} />
-                    <Route path="/admin/leads" render={() => <Leads />} />
+                    <Route path="/admin/leads" render={() => <Leads leadsInfo={this.state.leads} />} />
                     <Route path="/admin/clients" render={() => <Clients />} />
                     <Route path="/admin/case-pipelines" render={() => <CasePipelines />} />
                     <Route path="/admin/case-sessions" render={() => <CaseSessions />} />
