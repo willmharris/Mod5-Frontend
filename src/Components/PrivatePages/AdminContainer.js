@@ -35,7 +35,6 @@ class AdminContainer extends Component {
         )
     }
 
-
     getCases = () => {
         fetch('http://localhost:3000/cases').then(
             resp => resp.json()
@@ -44,15 +43,21 @@ class AdminContainer extends Component {
         )
     }
 
+    getServerInfo = () => {
+        this.getLeads()
+        this.getClients()
+        this.getCases()
+    }
+
     render() {
         return(
             <div>
-                <Route exact path="/admin" render={() => <AdminHome getLeads={this.getLeads} getClients={this.getClients} getCases={this.getCases} leads={this.state.leads} clients={this.state.clients} cases={this.state.cases}/>} />
-                <Route exact path="/admin/new-lead" render={() => <NewLead />} />
-                <Route exact path="/admin/new-case" render={() => <NewCase />} />
-                <Route path="/admin/leads" render={() => <Leads leadsInfo={this.state.leads} />} />
-                <Route path="/admin/clients" render={() => <Clients clientsInfo={this.state.clients} />} />
-                <Route path="/admin/cases" render={() => <Cases casesInfo={this.state.cases} />} />
+                <Route exact path="/admin" render={() => <AdminHome getServerInfo={this.getServerInfo} leads={this.state.leads} clients={this.state.clients} cases={this.state.cases}/>} />
+                <Route exact path="/admin/new-lead" render={() => <NewLead getServerInfo={this.getServerInfo} />} />
+                <Route exact path="/admin/new-case" render={() => <NewCase getServerInfo={this.getServerInfo} />} />
+                <Route path="/admin/leads" render={() => <Leads leads={this.state.leads} getServerInfo={this.getServerInfo} />} />
+                <Route path="/admin/clients" render={() => <Clients clients={this.state.clients} getServerInfo={this.getServerInfo} />} />
+                <Route path="/admin/cases" render={() => <Cases cases={this.state.cases} getServerInfo={this.getServerInfo} />} />
             </div>
         )
     }

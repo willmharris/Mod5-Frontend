@@ -13,7 +13,7 @@ class Leads extends Component {
     }
 
     getLead = () => {
-        let leadVariable = this.props.leadsInfo.filter(lead => lead.id === this.state.id)[0]
+        let leadVariable = this.props.leads.filter(lead => lead.id === this.state.id)[0]
         this.setState({lead: leadVariable})
     }
 
@@ -21,7 +21,11 @@ class Leads extends Component {
         event.preventDefault()
         fetch(`http://localhost:3000/users/${this.state.id}?account_type=2`, {
             method: "PATCH"
-        })
+        }).then(
+            this.props.getServerInfo()
+        ).then(
+            this.setState({redirect: true})
+        )
     }
 
     deleteLead = (event) => {
@@ -29,6 +33,8 @@ class Leads extends Component {
         fetch(`http://localhost:3000/users/${this.state.id}`, {
             method: "DELETE"
         }).then(
+            this.props.getServerInfo()
+        ).then(
             this.setState({redirect: true})
         )
     }

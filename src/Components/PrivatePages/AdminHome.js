@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 class AdminHome extends Component {
@@ -40,7 +40,7 @@ class AdminHome extends Component {
                 {this.props.cases.map(specificCase => {
                     return (
                         <NavLink to={`/admin/cases/#${specificCase.id}`} exact> 
-                            {specificCase.id} {specificCase.created_at}
+                            {specificCase.id} {specificCase.confirmed_location}
                         </NavLink> 
                     )
                 })}
@@ -70,9 +70,7 @@ class AdminHome extends Component {
     }
 
     componentDidMount() {
-        this.props.getLeads()
-        this.props.getClients()
-        this.props.getCases()
+        this.props.getServerInfo()
     }
 }
 

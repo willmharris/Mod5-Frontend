@@ -32,6 +32,8 @@ class NewLead extends Component {
             method: "POST", 
             body: JSON.stringify(data)
         }).then(
+            this.props.getServerInfo()
+        ).then(
             this.setState({redirect: true})
         )
     }

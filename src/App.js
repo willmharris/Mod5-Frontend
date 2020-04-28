@@ -31,7 +31,6 @@ function App() {
           <NavLink to="/schedule-a-call" exact>Schedule a call </NavLink>
           <NavLink to="/login" exact>Login </NavLink>
           <NavLink to="/admin" exact>Admin Container</NavLink>
-         
         </div>
         <br/>
         <div>

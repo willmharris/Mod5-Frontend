@@ -3,7 +3,7 @@ import React from 'react'
 function Cases(props) {
     
     let id = parseInt(window.location.hash.substring(1))
-    let specificCase = props.casesInfo.filter(specificCase => specificCase.id === id)[0]
+    let specificCase = props.cases.filter(specificCase => specificCase.id === id)[0]
     
     return(
         <div>
