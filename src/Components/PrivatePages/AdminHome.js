@@ -41,6 +41,7 @@ class AdminHome extends Component {
                     return (
                         <NavLink to={`/admin/cases/#${specificCase.id}`} exact> 
                             {specificCase.id} {specificCase.confirmed_location}
+                            <br />
                         </NavLink> 
                     )
                 })}

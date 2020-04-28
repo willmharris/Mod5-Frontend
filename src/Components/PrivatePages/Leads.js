@@ -22,7 +22,12 @@ class Leads extends Component {
         fetch(`http://localhost:3000/users/${this.state.id}?account_type=2`, {
             method: "PATCH"
         }).then(
-            this.props.getServerInfo()
+            resp => resp.json()
+        ).then(
+            data => {
+                this.props.removeLead(data)
+                this.props.addClient(data)
+            }
         ).then(
             this.setState({redirect: true})
         )
@@ -33,7 +38,10 @@ class Leads extends Component {
         fetch(`http://localhost:3000/users/${this.state.id}`, {
             method: "DELETE"
         }).then(
-            this.props.getServerInfo()
+            resp => resp.json()
+        ).then(
+            data => this.props.removeLead(data)
+
         ).then(
             this.setState({redirect: true})
         )

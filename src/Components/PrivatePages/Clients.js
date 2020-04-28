@@ -22,7 +22,12 @@ class Clients extends Component {
         fetch(`http://localhost:3000/users/${this.state.id}?account_type=1`, {
             method: "PATCH"
         }).then(
-            this.props.getServerInfo()
+            resp => resp.json()
+        ).then(
+            data => {
+                this.props.addLead(data)
+                this.props.removeClient(data)
+            }
         ).then(
             this.setState({redirect: true})
         )
@@ -33,7 +38,9 @@ class Clients extends Component {
         fetch(`http://localhost:3000/users/${this.state.id}`, {
             method: "DELETE"
         }).then(
-            this.props.getServerInfo()
+            resp => resp.json()
+        ).then(
+            data => this.props.removeClient(data)
         ).then(
             this.setState({redirect: true})
         )
