@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import {Route, NavLink} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import AdminHome from "./AdminHome.js"
+import NewLead from "./NewLead.js"
+import NewCase from "./NewCase.js"
 import Leads from "./Leads.js"
 import Clients from "./Clients.js"
-import CasePipelines from "./CasePipelines.js"
-import CaseSessions from "./CaseSessions.js"
+import Cases from "./Cases.js"
 
 
 class AdminContainer extends Component {
@@ -46,20 +47,12 @@ class AdminContainer extends Component {
     render() {
         return(
             <div>
-                <div>
-                    <NavLink to="/admin" exact>Admin Container </NavLink>
-                    <NavLink to="/admin/leads" exact>Leads </NavLink>
-                    <NavLink to="/admin/clients" exact>Clients </NavLink>
-                    <NavLink to="/admin/case-pipelines" exact>Case Pipeline </NavLink>
-                    <NavLink to="/admin/case-sessions" exact>Case Sessions </NavLink>
-                </div> 
-                <div>
-                    <Route exact path="/admin" render={() => <AdminHome getLeads={this.getLeads} getClients={this.getClients} getCases={this.getCases} leads={this.state.leads} clients={this.state.clients} cases={this.state.cases}/>} />
-                    <Route path="/admin/leads" render={() => <Leads leadsInfo={this.state.leads} />} />
-                    <Route path="/admin/clients" render={() => <Clients />} />
-                    <Route path="/admin/case-pipelines" render={() => <CasePipelines />} />
-                    <Route path="/admin/case-sessions" render={() => <CaseSessions />} />
-                </div>
+                <Route exact path="/admin" render={() => <AdminHome getLeads={this.getLeads} getClients={this.getClients} getCases={this.getCases} leads={this.state.leads} clients={this.state.clients} cases={this.state.cases}/>} />
+                <Route exact path="/admin/new-lead" render={() => <NewLead />} />
+                <Route exact path="/admin/new-case" render={() => <NewCase />} />
+                <Route path="/admin/leads" render={() => <Leads leadsInfo={this.state.leads} />} />
+                <Route path="/admin/clients" render={() => <Clients clientsInfo={this.state.clients} />} />
+                <Route path="/admin/cases" render={() => <Cases casesInfo={this.state.cases} />} />
             </div>
         )
     }

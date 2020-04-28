@@ -9,8 +9,9 @@ class AdminHome extends Component {
             <div> 
                 {this.props.leads.map(lead => {
                     return (
-                        <NavLink to={`/admin/leads/${lead.id}`} exact>
+                        <NavLink to={`/admin/leads/#${lead.id}`} exact>
                             {lead.first_name} {lead.last_name}
+                            <br />
                         </NavLink> 
                     )
                 })}
@@ -23,7 +24,10 @@ class AdminHome extends Component {
             <div> 
                 {this.props.clients.map(client => {
                     return (
-                        <div>{client.first_name} {client.last_name}</div>
+                        <NavLink to={`/admin/clients/#${client.id}`} exact>
+                            {client.first_name} {client.last_name}
+                            <br />
+                        </NavLink> 
                     )
                 })}
             </div>
@@ -33,9 +37,11 @@ class AdminHome extends Component {
     displayCases = () => {
         return (
             <div> 
-                {this.props.cases.map(client => {
+                {this.props.cases.map(specificCase => {
                     return (
-                    <div>Id: {client.id} Created: {client.created_at}</div> 
+                        <NavLink to={`/admin/cases/#${specificCase.id}`} exact> 
+                            {specificCase.id} {specificCase.created_at}
+                        </NavLink> 
                     )
                 })}
             </div>
@@ -45,17 +51,28 @@ class AdminHome extends Component {
     render() {
         return(
             <div>
-                <div onClick={this.props.getLeads}>Get Leads</div>
-                <div onClick={this.props.getClients}>Get Clients</div>
-                <div onClick={this.props.getCases}>Get Cases</div>
+                <br />
+                <NavLink to={`/admin/new-lead`} exact>
+                    Add a new lead
+                </NavLink>
+                <br />
+                Leads: {this.props.leads ? this.displayLeads() : null}
                 <br/><br/>  
-                {this.props.leads ? this.displayLeads() : null}
+                Clients: {this.props.clients ? this.displayClients() : null}
                 <br/><br/>  
-                {this.props.clients ? this.displayClients() : null}
-                <br/><br/>  
-                {this.props.cases ? this.displayCases() : null}
+                <NavLink to={`/admin/new-case`} exact>
+                    Add a new case
+                </NavLink>
+                <br />
+                Cases: {this.props.cases ? this.displayCases() : null}
             </div>
         )
+    }
+
+    componentDidMount() {
+        this.props.getLeads()
+        this.props.getClients()
+        this.props.getCases()
     }
 }
 
