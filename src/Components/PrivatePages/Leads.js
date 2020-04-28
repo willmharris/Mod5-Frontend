@@ -17,6 +17,13 @@ class Leads extends Component {
         this.setState({lead: leadVariable})
     }
 
+    upgradeToClient = (event) => {
+        event.preventDefault()
+        fetch(`http://localhost:3000/users/${this.state.id}?account_type=2`, {
+            method: "PATCH"
+        })
+    }
+
     deleteLead = (event) => {
         event.preventDefault()
         fetch(`http://localhost:3000/users/${this.state.id}`, {
@@ -38,6 +45,7 @@ class Leads extends Component {
                 <br />
                 {this.state.lead ? this.state.lead.email : null}
                 <br />
+                <button onClick={this.upgradeToClient}>Upgrade to client</button>
                 <button onClick={this.deleteLead}>Delete lead</button>
             </div>
         )
