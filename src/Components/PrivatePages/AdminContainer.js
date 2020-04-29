@@ -47,7 +47,7 @@ class AdminContainer extends Component {
         this.getLeads()
         this.getClients()
         this.getCases()
-        console.log('getServerInfo called')
+        console.log(this.state)
     }
 
     addLead = (lead) => {

@@ -52,7 +52,6 @@ class AdminHome extends Component {
     render() {
         return(
             <div>
-                <br />
                 <NavLink to={`/admin/new-lead`} exact>
                     Add a new lead
                 </NavLink>

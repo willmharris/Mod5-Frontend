@@ -19,8 +19,10 @@ class Clients extends Component {
 
     downgradeToLead = (event) => {
         event.preventDefault()
-        fetch(`http://localhost:3000/users/${this.state.id}?account_type=1`, {
-            method: "PATCH"
+        let data = {account_type: 1}
+        fetch(`http://localhost:3000/users/${this.state.id}`, {
+            method: "PATCH",
+            body: JSON.stringify(data)
         }).then(
             resp => resp.json()
         ).then(
