@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import AdminHome from "./AdminHome.js"
-import NewLead from "./NewLead.js"
-import NewCase from "./NewCase.js"
-import Leads from "./Leads.js"
-import Clients from "./Clients.js"
-import Cases from "./Cases.js"
+import NewLead from "./Leads/NewLead.js"
+import NewCase from "./Cases/NewCase.js"
+import Leads from "./Leads/Leads.js"
+import Clients from "./Clients/Clients.js"
+import Cases from "./Cases/Cases.js"
 
 
 class AdminContainer extends Component {
@@ -18,36 +18,15 @@ class AdminContainer extends Component {
           cases: null
         }
     }
-    
-    getLeads = () => {
-        fetch('http://localhost:3000/users?type=leads').then(
-            resp => resp.json()
-        ).then(
-            data => this.setState({leads: data})
-        )
-    }
-    
-    getClients = () => {
-        fetch('http://localhost:3000/users?type=clients').then(
-            resp => resp.json()
-        ).then( 
-            data => this.setState({clients: data})
-        )
-    }
-
-    getCases = () => {
-        fetch('http://localhost:3000/cases').then(
-            resp => resp.json()
-        ).then( 
-            data => this.setState({cases: data})
-        )
-    }
 
     getServerInfo = () => {
-        this.getLeads()
-        this.getClients()
-        this.getCases()
-        console.log(this.state)
+        fetch('http://localhost:3000/info').then(
+            resp => resp.json()
+        ).then(
+            data => {
+                this.setState({leads: data.leads, clients: data.clients, cases: data.cases})
+            }
+        )
     }
 
     addLead = (lead) => {

@@ -12,7 +12,6 @@ class NewCase extends Component {
     }
 
     updateFormState = (event) => {
-        let id = event.target.id
         let input = event.target.value
         this.setState({confirmedLocation: input})
        
