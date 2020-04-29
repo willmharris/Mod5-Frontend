@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router'
+import ClientDisplay from './ClientDisplay.js'
+import ClientEdit from './ClientEdit.js'
 
 class Clients extends Component {
 
@@ -8,6 +10,7 @@ class Clients extends Component {
         this.state = {
             id: parseInt(window.location.hash.substring(1)),
             client: null,
+            edit: false,
             redirect: false
         }
     }
@@ -15,6 +18,10 @@ class Clients extends Component {
     getClient = () => {
         let clientVariable = this.props.clients.filter(client => client.id === this.state.id)[0]
         this.setState({client: clientVariable})
+    }
+
+    updateClient = (newClient) => {
+        this.setState({client: newClient})
     }
 
     downgradeToLead = (event) => {
@@ -48,6 +55,14 @@ class Clients extends Component {
         )
     }
 
+    changeMode = (event) => {
+        if (event) {
+            event.preventDefault()
+        }
+        let newEditState = !this.state.edit
+        this.setState({edit: newEditState})
+    }
+
     render() {
         
         if (this.state.redirect === true) {
@@ -56,10 +71,9 @@ class Clients extends Component {
         
         return(
             <div>
-                {this.state.client ? this.state.client.first_name : null} {this.state.client? this.state.client.last_name : null}
+                {this.state.edit ? <ClientEdit client={this.state.client} changeMode={this.changeMode} updateClient={this.updateClient} /> : <ClientDisplay client={this.state.client}/>}
                 <br />
-                {this.state.client ? this.state.client.email : null}
-                <br />
+                {this.state.edit ? <button onClick={this.changeMode}>Display</button> : <button onClick={this.changeMode}>Edit</button>}
                 <button onClick={this.downgradeToLead}>Downgrad to lead</button>
                 <button onClick={this.deleteClient}>Delete client</button>
             </div>

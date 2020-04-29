@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router';
+import CaseDisplay from './CaseDisplay.js'
+import CaseEdit from './CaseEdit.js'
 
 class Cases extends Component {
 
@@ -8,6 +10,7 @@ class Cases extends Component {
         this.state = {
             id: parseInt(window.location.hash.substring(1)),
             currentCase: null,
+            edit: false,
             redirect: false
         }
     }
@@ -15,6 +18,10 @@ class Cases extends Component {
     getCase = () => {
         let caseVariable = this.props.cases.filter(thisCase => thisCase.id === this.state.id)[0]
         this.setState({currentCase: caseVariable})
+    }
+
+    updateCase = (newCase) => {
+        this.setState({currentCase: newCase})
     }
 
     deleteCase = (event) => {
@@ -31,6 +38,14 @@ class Cases extends Component {
         )
     }
 
+    changeMode = (event) => {
+        if (event) {
+            event.preventDefault()
+        }
+        let newEditState = !this.state.edit
+        this.setState({edit: newEditState})
+    }
+
     render() {
         
         if (this.state.redirect === true) {
@@ -39,10 +54,9 @@ class Cases extends Component {
         
         return(
             <div>
-                {this.state.currentCase ? this.state.currentCase.active_status : null} 
+                {this.state.edit ? <CaseEdit currentCase={this.state.currentCase} changeMode={this.changeMode} updateCase={this.updateCase} /> : <CaseDisplay currentCase={this.state.currentCase}/>}
                 <br />
-                {this.state.currentCase ? this.state.currentCase.confirmed_location : null} 
-                <br />
+                {this.state.edit ? <button onClick={this.changeMode}>Display</button> : <button onClick={this.changeMode}>Edit</button>}
                 <button onClick={this.deleteCase}>Delete case</button>
             </div>
         )
