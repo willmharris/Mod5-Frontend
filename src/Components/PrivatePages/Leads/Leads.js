@@ -9,19 +9,19 @@ class Leads extends Component {
         super()
         this.state = {
             id: parseInt(window.location.hash.substring(1)),
-            lead: null,
+            currentLead: null,
             edit: false,
             redirect: false
         }
     }
 
     getLead = () => {
-        let leadVariable = this.props.leads.filter(lead => lead.id === this.state.id)[0]
-        this.setState({lead: leadVariable})
+        let lead = this.props.leads.filter(lead => lead.id === this.state.id)[0]
+        this.setState({currentLead: lead})
     }
 
-    updateLead = (newLead) => {
-        this.setState({lead: newLead})
+    updateLead = (updatedLead) => {
+        this.setState({currentLead: updatedLead})
     }
 
     upgradeToClient = (event) => {
@@ -56,10 +56,8 @@ class Leads extends Component {
         )
     }
 
-    changeMode = (event) => {
-        if (event) {
-            event.preventDefault()
-        }
+    switchEditMode = (event) => {
+        if (event) { event.preventDefault() }
         let newEditState = !this.state.edit
         this.setState({edit: newEditState})
     }
@@ -72,14 +70,21 @@ class Leads extends Component {
         
         return(
             <div>
-                {this.state.edit ? <LeadEdit lead={this.state.lead} changeMode={this.changeMode} updateLead={this.updateLead} /> : <LeadDisplay lead={this.state.lead}/>}
+                {this.state.edit ? 
+                    <LeadEdit currentLead={this.state.currentLead} switchEditMode={this.switchEditMode} updateLead={this.updateLead} /> 
+                    : 
+                    <LeadDisplay currentLead={this.state.currentLead}/>
+                }
                 <br />
-                {this.state.edit ? <button onClick={this.changeMode}>Display</button> : <button onClick={this.changeMode}>Edit</button>}
+                {this.state.edit ? 
+                    <button onClick={this.switchEditMode}>Display</button> 
+                    : 
+                    <button onClick={this.switchEditMode}>Edit</button>
+                }
                 <button onClick={this.upgradeToClient}>Upgrade to client</button>
                 <button onClick={this.deleteLead}>Delete lead</button>
             </div>
         )
-        
     }
 
     componentDidMount() {

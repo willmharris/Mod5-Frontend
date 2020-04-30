@@ -3,9 +3,9 @@ import React from 'react'
 function ClientDisplay(props) {
     return(
         <div>
-            {props.client ? props.client.first_name : null} {props.client ? props.client.last_name : null}
+            {props.currentClient ? props.currentClient.first_name : null} {props.currentClient ? props.currentClient.last_name : null}
             <br />
-            {props.client ? props.client.email : null}
+            {props.currentClient ? props.currentClient.email : null}
         </div>
     )
 }

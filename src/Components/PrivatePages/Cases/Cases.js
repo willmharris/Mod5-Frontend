@@ -16,8 +16,8 @@ class Cases extends Component {
     }
 
     getCase = () => {
-        let caseVariable = this.props.cases.filter(thisCase => thisCase.id === this.state.id)[0]
-        this.setState({currentCase: caseVariable})
+        let theCase = this.props.cases.filter(theCase => theCase.id === this.state.id)[0]
+        this.setState({currentCase: theCase})
     }
 
     updateCase = (newCase) => {
@@ -38,10 +38,8 @@ class Cases extends Component {
         )
     }
 
-    changeMode = (event) => {
-        if (event) {
-            event.preventDefault()
-        }
+    changeEditMode = (event) => {
+        if (event) { event.preventDefault() }
         let newEditState = !this.state.edit
         this.setState({edit: newEditState})
     }
@@ -54,9 +52,17 @@ class Cases extends Component {
         
         return(
             <div>
-                {this.state.edit ? <CaseEdit currentCase={this.state.currentCase} changeMode={this.changeMode} updateCase={this.updateCase} /> : <CaseDisplay currentCase={this.state.currentCase}/>}
+                {this.state.edit ? 
+                    <CaseEdit currentCase={this.state.currentCase} changeEditMode={this.changeEditMode} updateCase={this.updateCase} /> 
+                    : 
+                    <CaseDisplay currentCase={this.state.currentCase}/>
+                }
                 <br />
-                {this.state.edit ? <button onClick={this.changeMode}>Display</button> : <button onClick={this.changeMode}>Edit</button>}
+                {this.state.edit ? 
+                    <button onClick={this.changeEditMode}>Display</button> 
+                    : 
+                    <button onClick={this.changeEditMode}>Edit</button>
+                }
                 <button onClick={this.deleteCase}>Delete case</button>
             </div>
         )

@@ -30,7 +30,7 @@ class CaseEdit extends Component {
         ).then(
             data => this.props.updateCase(data)
         ).then(
-            this.props.changeMode()
+            this.props.changeEditMode()
         )
     }
     

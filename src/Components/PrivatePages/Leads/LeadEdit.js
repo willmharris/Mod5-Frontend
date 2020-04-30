@@ -32,7 +32,7 @@ class LeadEdit extends Component {
             last_name: this.state.lastName,
             email: this.state.email
         }
-        fetch(`http://localhost:3000/users/${this.props.lead.id}`, {
+        fetch(`http://localhost:3000/users/${this.props.currentLead.id}`, {
             method: "PATCH", 
             body: JSON.stringify(data)
         }).then(
@@ -40,7 +40,7 @@ class LeadEdit extends Component {
         ).then(
             data => this.props.updateLead(data)
         ).then(
-            this.props.changeMode()
+            this.props.switchEditMode()
         )
     }
     
@@ -66,7 +66,7 @@ class LeadEdit extends Component {
     }
 
     componentDidMount() {
-        let lead = this.props.lead
+        let lead = this.props.currentLead
         this.setState({firstName: lead.first_name, lastName: lead.last_name, email: lead.email})
     }
 }

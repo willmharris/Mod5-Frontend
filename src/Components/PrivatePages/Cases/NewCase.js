@@ -19,7 +19,9 @@ class NewCase extends Component {
 
     createNewCase = (event) => {
         event.preventDefault()
-        let data = this.state
+        let data = {
+            confirmed_location: this.state.confirmedLocation
+        }
         fetch('http://localhost:3000/cases', {
             method: "POST", 
             body: JSON.stringify(data)

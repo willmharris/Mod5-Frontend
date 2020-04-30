@@ -9,19 +9,19 @@ class Clients extends Component {
         super()
         this.state = {
             id: parseInt(window.location.hash.substring(1)),
-            client: null,
+            currentClient: null,
             edit: false,
             redirect: false
         }
     }
 
     getClient = () => {
-        let clientVariable = this.props.clients.filter(client => client.id === this.state.id)[0]
-        this.setState({client: clientVariable})
+        let client = this.props.clients.filter(client => client.id === this.state.id)[0]
+        this.setState({currentClient: client})
     }
 
     updateClient = (newClient) => {
-        this.setState({client: newClient})
+        this.setState({currentClient: newClient})
     }
 
     downgradeToLead = (event) => {
@@ -55,10 +55,8 @@ class Clients extends Component {
         )
     }
 
-    changeMode = (event) => {
-        if (event) {
-            event.preventDefault()
-        }
+    changeEditMode = (event) => {
+        if (event) { event.preventDefault() }
         let newEditState = !this.state.edit
         this.setState({edit: newEditState})
     }
@@ -71,9 +69,17 @@ class Clients extends Component {
         
         return(
             <div>
-                {this.state.edit ? <ClientEdit client={this.state.client} changeMode={this.changeMode} updateClient={this.updateClient} /> : <ClientDisplay client={this.state.client}/>}
+                {this.state.edit ? 
+                    <ClientEdit currentClient={this.state.currentClient} changeEditMode={this.changeEditMode} updateClient={this.updateClient} /> 
+                    : 
+                    <ClientDisplay currentClient={this.state.currentClient}/>
+                }
                 <br />
-                {this.state.edit ? <button onClick={this.changeMode}>Display</button> : <button onClick={this.changeMode}>Edit</button>}
+                {this.state.edit ? 
+                    <button onClick={this.changeEditMode}>Display</button> 
+                    : 
+                    <button onClick={this.changeEditMode}>Edit</button>
+                }
                 <button onClick={this.downgradeToLead}>Downgrad to lead</button>
                 <button onClick={this.deleteClient}>Delete client</button>
             </div>

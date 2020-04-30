@@ -27,7 +27,12 @@ class NewLead extends Component {
 
     createNewLead = (event) => {
         event.preventDefault()
-        let data = this.state
+        let data = {
+            first_name: this.state.firstName,
+            last_name: this.state.lastName,
+            email: this.state.email,
+            account_type: 1
+        }
         fetch('http://localhost:3000/users', {
             method: "POST", 
             body: JSON.stringify(data)

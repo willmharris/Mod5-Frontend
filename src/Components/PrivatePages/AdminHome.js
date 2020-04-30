@@ -51,17 +51,14 @@ class AdminHome extends Component {
     render() {
         return(
             <div>
-                <NavLink to={`/admin/new-lead`} exact>
-                    Add a new lead
-                </NavLink>
+                <NavLink to={`/admin/new-lead`} exact>Add a new lead</NavLink>
+                <br />
+                <NavLink to={`/admin/new-case`} exact>Add a new case</NavLink>
+                <br />
                 <br />
                 Leads: {this.props.leads ? this.displayLeads() : null}
-                <br/><br/>  
+                <br/> 
                 Clients: {this.props.clients ? this.displayClients() : null}
-                <br/><br/>  
-                <NavLink to={`/admin/new-case`} exact>
-                    Add a new case
-                </NavLink>
                 <br />
                 Cases: {this.props.cases ? this.displayCases() : null}
             </div>

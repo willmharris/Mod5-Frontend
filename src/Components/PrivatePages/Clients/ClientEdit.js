@@ -32,7 +32,7 @@ class ClientEdit extends Component {
             last_name: this.state.lastName,
             email: this.state.email
         }
-        fetch(`http://localhost:3000/users/${this.props.client.id}`, {
+        fetch(`http://localhost:3000/users/${this.props.currentClient.id}`, {
             method: "PATCH", 
             body: JSON.stringify(data)
         }).then(
@@ -40,7 +40,7 @@ class ClientEdit extends Component {
         ).then(
             data => this.props.updateClient(data)
         ).then(
-            this.props.changeMode()
+            this.props.changeEditMode()
         )
     }
     
@@ -66,7 +66,7 @@ class ClientEdit extends Component {
     }
 
     componentDidMount() {
-        let client = this.props.client
+        let client = this.props.currentClient
         this.setState({firstName: client.first_name, lastName: client.last_name, email: client.email})
     }
 }
