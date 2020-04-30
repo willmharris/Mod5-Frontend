@@ -6,6 +6,14 @@ function ClientDisplay(props) {
             {props.currentClient ? props.currentClient.first_name : null} {props.currentClient ? props.currentClient.last_name : null}
             <br />
             {props.currentClient ? props.currentClient.email : null}
+            <br />
+            Cases:
+            <br />
+            {props.currentClientCases ? 
+                props.currentClientCases.map(theCase => <div>{theCase.confirmed_location}</div>) 
+                : 
+                null
+            }
         </div>
     )
 }

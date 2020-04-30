@@ -16,7 +16,8 @@ class AdminContainer extends Component {
           leads: null,
           clients: null,
           cases: null,
-          sessions: null
+          sessions: null,
+          userCases: null
         }
     }
 
@@ -25,7 +26,13 @@ class AdminContainer extends Component {
             resp => resp.json()
         ).then(
             data => {
-                this.setState({leads: data.leads, clients: data.clients, cases: data.cases, sessions: data.sessions})
+                this.setState({
+                    leads: data.leads, 
+                    clients: data.clients, 
+                    cases: data.cases, 
+                    sessions: data.sessions,
+                    userCases: data.user_cases
+                })
             }
         )
     }
@@ -64,7 +71,12 @@ class AdminContainer extends Component {
         return(
             <div>
                 <Route exact path="/admin" render={() => 
-                    <AdminHome getServerInfo={this.getServerInfo} leads={this.state.leads} clients={this.state.clients} cases={this.state.cases}/>
+                    <AdminHome 
+                        getServerInfo={this.getServerInfo} 
+                        leads={this.state.leads} 
+                        clients={this.state.clients} 
+                        cases={this.state.cases}
+                    />
                 } />
                 <Route exact path="/admin/new-lead" render={() => 
                     <NewLead addLead={this.addLead} />
@@ -73,13 +85,29 @@ class AdminContainer extends Component {
                     <NewCase addCase={this.addCase}  />
                 } />
                 <Route path="/admin/leads" render={() => 
-                    <Leads leads={this.state.leads} removeLead={this.removeLead} addClient={this.addClient} />
+                    <Leads 
+                        leads={this.state.leads} 
+                        removeLead={this.removeLead} 
+                        addClient={this.addClient} 
+                    />
                 } />
                 <Route path="/admin/clients" render={() => 
-                    <Clients clients={this.state.clients} addLead={this.addLead} removeClient={this.removeClient}  />
+                    <Clients 
+                        clients={this.state.clients} 
+                        cases={this.state.cases} 
+                        userCases={this.state.userCases} 
+                        addLead={this.addLead} 
+                        removeClient={this.removeClient} 
+                    />
                 } />
                 <Route path="/admin/cases" render={() => 
-                    <Cases cases={this.state.cases} sessions = {this.state.sessions} removeCase={this.removeCase}  />
+                    <Cases 
+                        cases={this.state.cases} 
+                        clients={this.state.clients} 
+                        userCases={this.state.userCases} 
+                        sessions = {this.state.sessions} 
+                        removeCase={this.removeCase}  
+                    />
                 } />
             </div>
         )

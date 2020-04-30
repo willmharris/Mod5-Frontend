@@ -11,14 +11,17 @@ class Cases extends Component {
         this.state = {
             id: parseInt(window.location.hash.substring(1)),
             currentCase: null,
+            currentCaseClients: null,
             edit: false,
             redirect: false
         }
     }
 
-    getCase = () => {
+    getCaseAndClients = () => {
         let theCase = this.props.cases.filter(theCase => theCase.id === this.state.id)[0]
-        this.setState({currentCase: theCase})
+        let userCases = this.props.userCases.filter(userCase => userCase.case_id === theCase.id)
+        let clients = userCases.map(userCase => this.props.clients.find(client => client.id === userCase.user_id))
+        this.setState({currentCase: theCase, currentCaseClients: clients})
     }
 
     updateCase = (newCase) => {
@@ -56,7 +59,7 @@ class Cases extends Component {
                 {this.state.edit ? 
                     <CaseEdit currentCase={this.state.currentCase} changeEditMode={this.changeEditMode} updateCase={this.updateCase} /> 
                     : 
-                    <CaseDisplay currentCase={this.state.currentCase}/>
+                    <CaseDisplay currentCase={this.state.currentCase} currentCaseClients={this.state.currentCaseClients}/>
                 }
                 <br />
                 {this.state.edit ? 
@@ -76,7 +79,7 @@ class Cases extends Component {
     }
 
     componentDidMount() {
-        this.getCase()
+        this.getCaseAndClients()
     }
 }
 
