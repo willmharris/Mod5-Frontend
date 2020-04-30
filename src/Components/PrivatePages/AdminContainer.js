@@ -15,7 +15,8 @@ class AdminContainer extends Component {
         this.state = {
           leads: null,
           clients: null,
-          cases: null
+          cases: null,
+          sessions: null
         }
     }
 
@@ -24,7 +25,7 @@ class AdminContainer extends Component {
             resp => resp.json()
         ).then(
             data => {
-                this.setState({leads: data.leads, clients: data.clients, cases: data.cases})
+                this.setState({leads: data.leads, clients: data.clients, cases: data.cases, sessions: data.sessions})
             }
         )
     }
@@ -78,7 +79,7 @@ class AdminContainer extends Component {
                     <Clients clients={this.state.clients} addLead={this.addLead} removeClient={this.removeClient}  />
                 } />
                 <Route path="/admin/cases" render={() => 
-                    <Cases cases={this.state.cases} removeCase={this.removeCase}  />
+                    <Cases cases={this.state.cases} sessions = {this.state.sessions} removeCase={this.removeCase}  />
                 } />
             </div>
         )

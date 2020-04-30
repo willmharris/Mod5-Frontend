@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router';
 import CaseDisplay from './CaseDisplay.js'
 import CaseEdit from './CaseEdit.js'
+import SessionsContainer from '../Sessions/SessionsContainer.js'
 
 class Cases extends Component {
 
@@ -64,6 +65,11 @@ class Cases extends Component {
                     <button onClick={this.changeEditMode}>Edit</button>
                 }
                 <button onClick={this.deleteCase}>Delete case</button>
+                <br />
+                <br />
+                <p>Sessions:</p>
+                <SessionsContainer sessions={this.props.sessions} id={this.state.id} />
+                
             </div>
         )
         
