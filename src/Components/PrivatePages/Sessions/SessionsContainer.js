@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import { Route, NavLink } from 'react-router-dom'
 import Session from './Session.js'
+import NewSession from './NewSession.js'
+
 
 class SessionsContainer extends Component {
     
@@ -10,19 +13,34 @@ class SessionsContainer extends Component {
         }
     }
 
+    addSession = (addedSession) => {
+        let newSessions = [...this.state.caseSessions, addedSession]
+        this.setState({caseSessions: newSessions})
+    }
+
     removeSession = (removedSession) => {
         let newSessions = this.state.caseSessions.filter(session => session.id !== removedSession.id)
         this.setState({caseSessions: newSessions})
     }
 
-    render() {
-        return(
+    displayAllSessions = () => {
+        return( 
             <div>
+                <NavLink to={`/admin/cases/${this.props.id}/new-session`}>Add a New Session</NavLink>
                 {this.state.caseSessions ? 
-                    this.state.caseSessions.map(theSession => <Session session={theSession} /> ) 
+                    this.state.caseSessions.map(theSession => <Session session={theSession} removeSession = {this.removeSession} /> ) 
                     : 
                     null
                 }
+            </div>
+        )
+    }
+
+    render() {
+        return(
+            <div>
+                <Route exact path={`/admin/cases/${this.props.id}/new-session`} render={() => <NewSession id ={this.props.id} addSession={this.addSession}/>} />
+                <Route exact path={`/admin/cases`} render={this.displayAllSessions} />
             </div>
         )
     }
@@ -34,3 +52,4 @@ class SessionsContainer extends Component {
 }
 
 export default SessionsContainer
+
