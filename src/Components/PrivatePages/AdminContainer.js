@@ -57,9 +57,10 @@ class AdminContainer extends Component {
         this.setState({clients: newClients})
     }
 
-    addCase = (addedCase) => {
-        let newCases = [...this.state.cases, addedCase]
-        this.setState({cases: newCases})
+    addCase = (data) => {
+        let newCases = [...this.state.cases, data["addedCase"]]
+        let newUserCases = [...this.state.userCases, data["firstAddedUserCase"], data["secondAddedUserCase"]]   
+        this.setState({cases: newCases, userCases: newUserCases})
     }
 
     removeCase = (removedCase) => {
@@ -82,7 +83,7 @@ class AdminContainer extends Component {
                     <NewLead addLead={this.addLead} />
                 } />
                 <Route exact path="/admin/new-case" render={() => 
-                    <NewCase addCase={this.addCase}  />
+                    <NewCase addCase={this.addCase} clients={this.state.clients} />
                 } />
                 <Route path="/admin/leads" render={() => 
                     <Leads 

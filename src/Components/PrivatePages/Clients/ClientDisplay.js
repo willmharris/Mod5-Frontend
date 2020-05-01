@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 function ClientDisplay(props) {
     return(
@@ -10,7 +11,7 @@ function ClientDisplay(props) {
             Cases:
             <br />
             {props.currentClientCases ? 
-                props.currentClientCases.map(theCase => <div>{theCase.confirmed_location}</div>) 
+                props.currentClientCases.map(theCase => <NavLink to={`/admin/cases/#${theCase.id}`}>{theCase.confirmed_location}</NavLink>) 
                 : 
                 null
             }

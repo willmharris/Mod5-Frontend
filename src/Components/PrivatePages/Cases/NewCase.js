@@ -7,6 +7,8 @@ class NewCase extends Component {
         super()
         this.state = {
           confirmedLocation: null,
+          firstClient: null,
+          secondClient: null,
           redirect: false
         }
     }
@@ -14,13 +16,14 @@ class NewCase extends Component {
     updateFormState = (event) => {
         let input = event.target.value
         this.setState({confirmedLocation: input})
-       
     }
 
     createNewCase = (event) => {
         event.preventDefault()
         let data = {
-            confirmed_location: this.state.confirmedLocation
+            confirmed_location: this.state.confirmedLocation,
+            first_client: this.state.firstClient,
+            second_client: this.state.secondClient
         }
         fetch('http://localhost:3000/cases', {
             method: "POST", 
@@ -32,6 +35,15 @@ class NewCase extends Component {
         ).then(
             this.setState({redirect: true})
         )
+    }
+
+    addToCase(client) {
+        console.log('working')
+        if (!this.state.firstClient) {
+            this.setState({firstClient: client})
+        } else if (!this.state.secondClient) {
+            this.setState({secondClient: client})
+        }
     }
     
     render() {
@@ -47,6 +59,21 @@ class NewCase extends Component {
                     <input type="text" onChange={this.updateFormState}></input>
                     <input type="submit" onClick={this.createNewCase}></input>
                 </form>
+                <div>
+                    <p>Participants:</p>
+                    <p>
+                        {this.state.firstClient ? this.state.firstClient.first_name : null}
+                        {this.state.firstClient ? this.state.firstClient.last_name : null}
+                    </p>
+                    <p>
+                        {this.state.secondClient ? this.state.secondClient.first_name : null} 
+                        {this.state.secondClient ? this.state.secondClient.last_name : null}
+                    </p>
+                </div>
+                <div>
+                    Clients:
+                    {this.props.clients.map(client => <div onClick={() => this.addToCase(client)}>{client.first_name} {client.last_name}</div>)}
+                </div>
             </div>
         )
     }
