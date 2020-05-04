@@ -22,6 +22,7 @@ class NewCase extends Component {
         event.preventDefault()
         let data = {
             confirmed_location: this.state.confirmedLocation,
+            active: true,
             first_client: this.state.firstClient,
             second_client: this.state.secondClient
         }

@@ -31,7 +31,8 @@ class GetInTouch extends Component {
             first_name: this.state.firstName,
             last_name: this.state.lastName,
             email: this.state.email,
-            account_type: 1
+            account_type: 1,
+            password: "1234"
         }
         fetch('http://localhost:3000/users', {
             method: "POST", 
