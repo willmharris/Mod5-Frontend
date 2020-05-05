@@ -9,6 +9,9 @@ class NewLead extends Component {
           firstName: null,
           lastName: null,
           email: null,
+          phoneNumber: null,
+          zipCode: null,
+          callScheduled: false,
           redirect: false
         }
     }
@@ -22,6 +25,10 @@ class NewLead extends Component {
             this.setState({lastName: input})
         } else if (id === "email") {
             this.setState({email: input})
+        } else if (id === "phoneNumber") {
+            this.setState({phoneNumber: input})
+        } else if (id === "zipCode") {
+            this.setState({zipCode: input})
         }
     }
 
@@ -30,8 +37,12 @@ class NewLead extends Component {
         let data = {
             first_name: this.state.firstName,
             last_name: this.state.lastName,
+            lead_active: true,
             email: this.state.email,
             account_type: 1,
+            phone_number: this.state.phoneNumber,
+            zip_code: this.state.zipCode,
+            call_scheduled: this.state.callScheduled,
             password: "1234"
         }
         fetch('http://localhost:3000/users', {
@@ -44,6 +55,10 @@ class NewLead extends Component {
         ).then(
             this.setState({redirect: true})
         )
+    }
+
+    callScheduled = () => {
+        this.setState({callScheduled: true})
     }
     
     render() {
@@ -59,8 +74,19 @@ class NewLead extends Component {
                     <input type="text" id="firstName" onChange={this.updateFormState}></input>
                     <label>Last Name:</label>
                     <input type="text" id="lastName" onChange={this.updateFormState}></input>
+                    <br />
+                    <label>Call scheduled?</label>
+                    <input type="checkbox" onChange={this.callScheduled}></input>
+                    <br />
                     <label>Email:</label>
                     <input type="text" id="email" onChange={this.updateFormState}></input>
+                    <br />
+                    <label>Phone Number:</label>
+                    <input type="number" id="phoneNumber" onChange={this.updateFormState}></input>
+                    <br />
+                    <label>Zip Code:</label>
+                    <input type="number" id="zipCode" onChange={this.updateFormState}></input>
+                    <br />
                     <input type="submit" onClick={this.createNewLead}></input>
                 </form>
             </div>
