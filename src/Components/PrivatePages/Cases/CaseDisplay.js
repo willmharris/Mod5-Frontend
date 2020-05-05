@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 function CaseDisplay(props) {
-    
+
     return(
         <div>
             {props.currentCase ?
@@ -21,7 +21,20 @@ function CaseDisplay(props) {
                     Clients:
                     <br />
                     {props.currentCaseClients ? 
-                        props.currentCaseClients.map(client => <NavLink to={`/admin/clients/#${client.id}`}>{client.first_name} {client.last_name}</NavLink>) 
+                        props.currentCaseClients.map(client => {
+                            let userCase = props.currentUserCases.filter(userCase => userCase.user_id === client.id)[0]
+                            return(
+                                <div> 
+                                    <NavLink to={`/admin/clients/#${client.id}`}>{client.first_name} {client.last_name}</NavLink>
+                                    <br />
+                                    {userCase.planned_session_confirmed ? "Confirmed for next session" : "Not confirmed"}
+                                    <br />
+                                    {userCase.team_relationship}
+                                    <br />
+                                    <br />
+                                </div>
+                            )
+                        }) 
                         : 
                         null
                     }

@@ -11,6 +11,7 @@ class Cases extends Component {
         this.state = {
             id: parseInt(window.location.hash.substring(1)),
             currentCase: null,
+            currentUserCases: null,
             currentCaseClients: null,
             edit: false,
             redirect: false
@@ -21,7 +22,7 @@ class Cases extends Component {
         let theCase = this.props.cases.filter(theCase => theCase.id === this.state.id)[0]
         let userCases = this.props.userCases.filter(userCase => userCase.case_id === theCase.id)
         let clients = userCases.map(userCase => this.props.clients.find(client => client.id === userCase.user_id))
-        this.setState({currentCase: theCase, currentCaseClients: clients})
+        this.setState({currentCase: theCase, currentUserCases: userCases, currentCaseClients: clients})
     }
 
     updateCase = (newCase) => {
@@ -59,7 +60,7 @@ class Cases extends Component {
                 {this.state.edit ? 
                     <CaseEdit currentCase={this.state.currentCase} changeEditMode={this.changeEditMode} updateCase={this.updateCase} /> 
                     : 
-                    <CaseDisplay currentCase={this.state.currentCase} currentCaseClients={this.state.currentCaseClients}/>
+                    <CaseDisplay currentCase={this.state.currentCase} currentUserCases={this.state.currentUserCases} currentCaseClients={this.state.currentCaseClients}/>
                 }
                 <br />
                 {this.state.edit ? 
