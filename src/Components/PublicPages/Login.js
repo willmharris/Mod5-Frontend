@@ -42,6 +42,9 @@ class Login extends Component {
                     if (data["account_type"] === 0) {
                         this.setState({redirect: "admin"})
                     }
+                    if (data["account_type"] === 2) {
+                        this.setState({redirect: "your-case"})
+                    }
                 }
             }
         )
@@ -51,6 +54,10 @@ class Login extends Component {
         
         if (this.state.redirect === "admin"){
             return <Redirect to="/admin" />
+        }
+
+        if (this.state.redirect === "your-case"){
+            return <Redirect to="/your-case" />
         }
 
         return(

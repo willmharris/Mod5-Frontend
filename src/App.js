@@ -8,6 +8,7 @@ import WhatIsMediation from "./Components/PublicPages/WhatIsMediation.js"
 import GetInTouch from "./Components/PublicPages/GetInTouch.js"
 import ScheduleACall from "./Components/PublicPages/ScheduleACall.js"
 import Login from "./Components/PublicPages/Login.js"
+import YourCase from "./Components/PublicPages/YourCase.js"
 // Private pages
 import AdminContainer from "./Components/PrivatePages/AdminContainer.js"
 
@@ -36,6 +37,7 @@ function App(props) {
           <NavLink to="/get-in-touch" exact>Get in touch </NavLink>
           <NavLink to="/schedule-a-call" exact>Schedule a call </NavLink>
           <NavLink to="/login" exact>Login </NavLink>
+          <NavLink to="/your-case" exact>Your case </NavLink>
           <NavLink to="/admin" exact>Admin Container</NavLink>
           <button onClick={logout}>Logout</button>
         </div>
@@ -46,6 +48,13 @@ function App(props) {
           <Route exact path="/get-in-touch" render={() => <GetInTouch />} />
           <Route exact path="/schedule-a-call" render={ScheduleACall} />
           <Route exact path="/login" render={() => <Login setUser={setUser}/>} />
+          <Route path="/your-case" render={() => { 
+            if (cookies.get('accountType') === "2") {
+              return <YourCase cookies={props.cookies} />
+            } else {
+              return <Redirect to="/login" />
+            }
+          }} />
           <Route path="/admin" render={() => { 
             if (cookies.get('accountType') === "0") {
               return <AdminContainer cookies={props.cookies} />
