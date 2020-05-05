@@ -39,7 +39,7 @@ class AdminHome extends Component {
                 {this.props.cases.map(specificCase => {
                     return (
                         <NavLink to={`/admin/cases/#${specificCase.id}`} exact> 
-                            {specificCase.id} {specificCase.confirmed_location}
+                            {specificCase.planned_location} {specificCase.planned_date ? specificCase.planned_date.substring(0, 10) : null}
                             <br />
                         </NavLink> 
                     )

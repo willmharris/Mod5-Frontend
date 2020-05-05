@@ -6,23 +6,29 @@ class NewCase extends Component {
     constructor() {
         super()
         this.state = {
-          confirmedLocation: null,
-          firstClient: null,
-          secondClient: null,
-          redirect: false
+            plannedDate: null,
+            plannedLocation: null,
+            firstClient: null,
+            secondClient: null,
+            redirect: false
         }
     }
 
     updateFormState = (event) => {
+        let id = event.target.id
         let input = event.target.value
-        this.setState({confirmedLocation: input})
+        if (id === "plannedDate") {
+            this.setState({plannedDate: input})
+        } else if (id === "plannedLocation") {
+            this.setState({plannedLocation: input})
+        }
     }
 
     createNewCase = (event) => {
         event.preventDefault()
         let data = {
-            confirmed_location: this.state.confirmedLocation,
-            active: true,
+            planned_date: this.state.plannedDate,
+            planned_location: this.state.plannedLocation,
             first_client: this.state.firstClient,
             second_client: this.state.secondClient
         }
@@ -56,8 +62,12 @@ class NewCase extends Component {
         return(
             <div>
                 <form>
-                    <label>Confirmed Location:</label>
-                    <input type="text" onChange={this.updateFormState}></input>
+                    <label>Planned Date:</label>
+                    <input type="date" id="plannedDate" onChange={this.updateFormState}></input>
+                    <br />
+                    <label>Planned Location:</label>
+                    <input type="text" id="plannedLocation" onChange={this.updateFormState}></input>
+                    <br /> 
                     <input type="submit" onClick={this.createNewCase}></input>
                 </form>
                 <div>
