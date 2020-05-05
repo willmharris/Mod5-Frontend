@@ -40,7 +40,7 @@ class SessionsContainer extends Component {
         return(
             <div>
                 <Route exact path={`/admin/cases/${this.props.id}/new-session`} render={() => <NewSession id ={this.props.id} addSession={this.addSession}/>} />
-                <Route exact path={`/admin/cases`} render={this.displayAllSessions} />
+                <Route path={`/`} render={this.displayAllSessions} />
             </div>
         )
     }

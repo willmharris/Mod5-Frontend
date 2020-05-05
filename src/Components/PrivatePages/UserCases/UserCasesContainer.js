@@ -12,8 +12,6 @@ class UserCasesContainer extends Component {
         }
     }
 
-  
-
     render() {
         return(
             <div>
