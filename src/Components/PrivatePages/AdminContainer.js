@@ -66,7 +66,6 @@ class AdminContainer extends Component {
     removeCase = (removedCase) => {
         let newCases = this.state.cases.filter(thisCase => thisCase.id !== removedCase.id)
         let newUserCases = this.state.userCases.filter(userCase => userCase.case_id !== removedCase.id)
-        debugger
         this.setState({cases: newCases, userCases: newUserCases})
     }
 

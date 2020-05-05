@@ -20,7 +20,6 @@ class Clients extends Component {
         let client = this.props.clients.filter(client => client.id === this.state.id)[0]
         let userCases = this.props.userCases.filter(userCase => userCase.user_id === client.id)
         let cases = userCases.map(userCase => this.props.cases.find(theCase => theCase.id === userCase.case_id))
-        debugger
         this.setState({currentClient: client, currentClientCases: cases})
     }
 
@@ -42,7 +41,7 @@ class Clients extends Component {
                 this.props.removeClient(data)
             }
         ).then(
-            this.setState({redirect: true})
+            () => this.setState({redirect: true})
         )
     }
 
