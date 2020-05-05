@@ -3,6 +3,7 @@ import { Redirect } from 'react-router';
 import CaseDisplay from './CaseDisplay.js'
 import CaseEdit from './CaseEdit.js'
 import SessionsContainer from '../Sessions/SessionsContainer.js'
+import UserCasesContainer from '../UserCases/UserCasesContainer.js'
 
 class Cases extends Component {
 
@@ -69,6 +70,10 @@ class Cases extends Component {
                     <button onClick={this.changeEditMode}>Edit</button>
                 }
                 <button onClick={this.deleteCase}>Delete case</button>
+                <br />
+                <br />
+                <p>Clients:</p>
+                <UserCasesContainer clients={this.props.clients} userCases={this.props.userCases} id={this.state.id} />
                 <br />
                 <br />
                 <p>Sessions:</p>
