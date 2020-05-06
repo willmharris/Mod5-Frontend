@@ -13,6 +13,7 @@ import YourCase from "./Components/PublicPages/YourCase.js"
 import AdminContainer from "./Components/PrivatePages/AdminContainer.js"
 
 
+
 function App(props) {
   
   const { cookies } = props
@@ -29,7 +30,7 @@ function App(props) {
   }
 
   return (
-    <div>
+    <div >
       <Router>
         <div>  
           <NavLink to="/" exact>Homepage </NavLink>

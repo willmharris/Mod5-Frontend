@@ -1,11 +1,16 @@
 import React from 'react'
+import { Typography, Box } from "@material-ui/core"
 
-function Home() {
-    return(
-        <div>
-            Homepage
-        </div>
+
+
+export default function Home() {
+    
+    return (
+        <Box >
+            <Typography > Test text </Typography>
+        </Box>
+        
     )
+      
 }
 
-export default Home
