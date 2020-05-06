@@ -73,12 +73,18 @@ class Session extends Component {
                         <p>{this.state.location}</p>
                     </div>
                 }
-                {this.state.edit ? 
-                    <button onClick={this.changeEditMode}>Display</button> 
-                    : 
-                    <button onClick={this.changeEditMode}>Edit</button>
+                {this.props.admin ?
+                    <div>
+                        {this.state.edit ? 
+                            <button onClick={this.changeEditMode}>Display</button> 
+                            : 
+                            <button onClick={this.changeEditMode}>Edit</button>
+                        }
+                        <button onClick={this.deleteSession}>Delete session</button>
+                    </div>
+                    :
+                    null
                 }
-                <button onClick={this.deleteSession}>Delete session</button>
             </div>
         )
     }

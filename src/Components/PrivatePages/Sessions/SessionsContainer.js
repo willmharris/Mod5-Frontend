@@ -28,7 +28,7 @@ class SessionsContainer extends Component {
             <div>
                 <NavLink to={`/admin/cases/${this.props.id}/new-session`}>Add a New Session</NavLink>
                 {this.state.caseSessions ? 
-                    this.state.caseSessions.map(theSession => <Session session={theSession} removeSession = {this.removeSession} /> ) 
+                    this.state.caseSessions.map(theSession => <Session admin={this.props.admin} session={theSession} removeSession = {this.removeSession} /> ) 
                     : 
                     null
                 }
@@ -40,7 +40,7 @@ class SessionsContainer extends Component {
         return(
             <div>
                 <Route exact path={`/admin/cases/${this.props.id}/new-session`} render={() => <NewSession id ={this.props.id} addSession={this.addSession}/>} />
-                <Route path={`/`} render={this.displayAllSessions} />
+                <Route path={`/`} render={this.displayAllSessions} /> 
             </div>
         )
     }

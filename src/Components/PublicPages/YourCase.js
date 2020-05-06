@@ -17,7 +17,8 @@ class YourCase extends Component {
             currentCaseId: null,
             currentCase: null,
             currentUserCases: null,
-            currentCaseClients: null
+            currentCaseClients: null,
+            admin: false
         }
     }
    
@@ -33,7 +34,7 @@ class YourCase extends Component {
                 <br />
                 <p>Participants:</p>
                 {this.state.cases ?
-                    <UserCasesContainer clients={this.state.clients} userCases={this.state.userCases} id={this.state.currentCaseId} />
+                    <UserCasesContainer admin={this.state.admin} clients={this.state.clients} userCases={this.state.userCases} id={this.state.currentCaseId} />
                     :
                     null
                 }
@@ -41,7 +42,7 @@ class YourCase extends Component {
                 <br />
                 <p>Sessions:</p>
                 {this.state.cases ?
-                    <SessionsContainer sessions={this.state.sessions} id={this.state.currentCaseId} />
+                    <SessionsContainer admin={this.state.admin} sessions={this.state.sessions} id={this.state.currentCaseId} />
                     :
                     null
                 }

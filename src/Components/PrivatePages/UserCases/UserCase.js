@@ -91,11 +91,18 @@ class Session extends Component {
                         }
                     </div>
                 }
-                {this.state.edit ? 
-                    <button onClick={this.changeEditMode}>Display</button> 
-                    : 
-                    <button onClick={this.changeEditMode}>Edit</button>
+                {this.props.admin ?
+                    <div>
+                        {this.state.edit ? 
+                            <button onClick={this.changeEditMode}>Display</button> 
+                            : 
+                            <button onClick={this.changeEditMode}>Edit</button>
+                        }
+                    </div>
+                    :
+                    null
                 }
+
             </div>
         )
     }

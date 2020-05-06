@@ -16,7 +16,7 @@ class UserCasesContainer extends Component {
         return(
             <div>
                {this.state.userCases ? 
-                    this.state.userCases.map(mappedUserCase => <UserCase userCase={mappedUserCase} clients={this.props.clients} />) 
+                    this.state.userCases.map(mappedUserCase => <UserCase admin={this.props.admin} userCase={mappedUserCase} clients={this.props.clients} />) 
                     : 
                     null
                 }

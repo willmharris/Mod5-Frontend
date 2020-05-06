@@ -15,7 +15,8 @@ class Cases extends Component {
             currentUserCases: null,
             currentCaseClients: null,
             edit: false,
-            redirect: false
+            redirect: false,
+            admin: true
         }
     }
 
@@ -73,11 +74,11 @@ class Cases extends Component {
                 <br />
                 <br />
                 <p>Clients:</p>
-                <UserCasesContainer clients={this.props.clients} userCases={this.props.userCases} id={this.state.id} />
+                <UserCasesContainer admin={this.state.admin} clients={this.props.clients} userCases={this.props.userCases} id={this.state.id} />
                 <br />
                 <br />
                 <p>Sessions:</p>
-                <SessionsContainer sessions={this.props.sessions} id={this.state.id} />
+                <SessionsContainer admin={this.state.admin} sessions={this.props.sessions} id={this.state.id} />
                 
             </div>
         )
