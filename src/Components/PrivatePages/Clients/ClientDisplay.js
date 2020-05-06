@@ -16,7 +16,7 @@ function ClientDisplay(props) {
                     <br />
                     Cases:
                     <br />
-                    {props.currentClientCases.map(theCase => <NavLink to={`/admin/cases/#${theCase.id}`}>{theCase.confirmed_location}</NavLink>) }
+                    {props.currentClientCases.map(theCase => <NavLink to={`/admin/cases/#${theCase.id}`}>{theCase.planned_location}</NavLink>) }
                 </div>
                 :
                 null

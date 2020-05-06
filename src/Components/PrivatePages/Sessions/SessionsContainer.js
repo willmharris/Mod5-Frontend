@@ -26,7 +26,11 @@ class SessionsContainer extends Component {
     displayAllSessions = () => {
         return( 
             <div>
-                <NavLink to={`/admin/cases/${this.props.id}/new-session`}>Add a New Session</NavLink>
+                {this.props.admin ?
+                    <NavLink to={`/admin/cases/${this.props.id}/new-session`}>Add a New Session</NavLink>
+                    :
+                    null
+                }
                 {this.state.caseSessions ? 
                     this.state.caseSessions.map(theSession => <Session admin={this.props.admin} session={theSession} removeSession = {this.removeSession} /> ) 
                     : 

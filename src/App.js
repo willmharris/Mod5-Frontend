@@ -11,6 +11,8 @@ import Login from "./Components/PublicPages/Login.js"
 import YourCase from "./Components/PublicPages/YourCase.js"
 // Private pages
 import AdminContainer from "./Components/PrivatePages/AdminContainer.js"
+// Semantic 
+import { Menu } from 'semantic-ui-react'
 
 
 
@@ -32,16 +34,21 @@ function App(props) {
   return (
     <div >
       <Router>
-        <div>  
-          <NavLink to="/" exact>Homepage </NavLink>
-          <NavLink to="/what-is-mediation" exact>What is mediation? </NavLink>
-          <NavLink to="/get-in-touch" exact>Get in touch </NavLink>
-          <NavLink to="/schedule-a-call" exact>Schedule a call </NavLink>
-          <NavLink to="/login" exact>Login </NavLink>
-          <NavLink to="/your-case" exact>Your case </NavLink>
-          <NavLink to="/admin" exact>Admin Container</NavLink>
-          <button onClick={logout}>Logout</button>
-        </div>
+        <Menu>  
+          <NavLink to="/" exact> <Menu.Item>Homepage </Menu.Item></NavLink>
+          <NavLink to="/what-is-mediation" exact><Menu.Item>What is mediation </Menu.Item></NavLink>
+          <NavLink to="/get-in-touch" exact><Menu.Item>Get in touch</Menu.Item></NavLink>
+          <NavLink to="/schedule-a-call" exact><Menu.Item>Schedule a call</Menu.Item></NavLink>
+          <NavLink to="/your-case" exact><Menu.Item>Your case </Menu.Item></NavLink>
+          <NavLink to="/admin" exact><Menu.Item>Admin</Menu.Item></NavLink>
+          <Menu.Menu position="right">
+            {cookies.get('id') ?
+              <NavLink to="/login" exact><Menu.Item onClick={logout}>Logout</Menu.Item></NavLink>
+              : 
+              <NavLink to="/login" exact><Menu.Item>Login </Menu.Item></NavLink>
+            }
+          </Menu.Menu>
+        </Menu>
         <br/>
         <div>
           <Route exact path="/" render={Home} />

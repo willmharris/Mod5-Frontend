@@ -4,15 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { CookiesProvider } from 'react-cookie'
-import { ThemeProvider } from "@material-ui/core"
-import materialTheme from './materialTheme.js'
 
 ReactDOM.render(
   <CookiesProvider>
     <React.StrictMode>
-    <ThemeProvider theme={materialTheme}>
       <App /> 
-    </ThemeProvider> 
     </React.StrictMode>
   </CookiesProvider>,
   document.getElementById('root')

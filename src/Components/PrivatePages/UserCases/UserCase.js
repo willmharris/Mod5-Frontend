@@ -84,7 +84,11 @@ class Session extends Component {
                             <div>
                                 <NavLink to={`/admin/clients/#${this.state.currentClient.id}`}><p>{this.state.currentClient.first_name} {this.state.currentClient.last_name}</p></NavLink>
                                 <p>Next Session Confirmed: {this.state.plannedSessionConfirmed ? "Yes" : "No"}</p>
-                                <p>Relationship: {this.state.teamRelationship}</p>
+                                {this.props.admin ? 
+                                    <p>Relationship: {this.state.teamRelationship}</p>
+                                    :
+                                    null
+                                }
                             </div>
                             :
                             null
