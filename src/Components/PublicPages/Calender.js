@@ -2,14 +2,14 @@ import React from 'react';
 
 const Calender = () => {
   return (
-    <div style={{ height: "800px" }}>
-      <iframe
+    <React.Fragment>
+      <iframe style={{ height: "800px" }}
         src="https://calendly.com/willmharris0/consultation-call"
         width="100%"
         height="100%"
         frameborder="0"
       ></iframe>
-    </div>
+    </React.Fragment>
   );
 };
 export default Calender;

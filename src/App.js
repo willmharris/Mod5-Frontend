@@ -49,12 +49,11 @@ function App(props) {
             }
           </Menu.Menu>
         </Menu>
-        <br/>
-        <div>
+        <React.Fragment>
           <Route exact path="/" render={Home} />
           <Route exact path="/what-is-mediation" render={WhatIsMediation} />
           <Route exact path="/get-in-touch" render={() => <GetInTouch />} />
-          <Route exact path="/schedule-a-call" render={ScheduleACall} />
+          <Route exact path="/schedule-a-call" render={() => <ScheduleACall />} />
           <Route exact path="/login" render={() => <Login setUser={setUser}/>} />
           <Route path="/your-case" render={() => { 
             if (cookies.get('accountType') === "2") {
@@ -70,7 +69,7 @@ function App(props) {
               return <Redirect to="/login" />
             }
           }} />
-        </div>
+        </React.Fragment>
       </Router>
     </div>
   )

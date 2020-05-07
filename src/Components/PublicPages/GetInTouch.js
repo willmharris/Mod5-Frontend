@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router'
+import { Button, Form } from 'semantic-ui-react'
 
 class GetInTouch extends Component {
     
@@ -9,6 +10,8 @@ class GetInTouch extends Component {
           firstName: null,
           lastName: null,
           email: null,
+          phoneNumber: null,
+          zipCode: null,
           redirect: false
         }
     }
@@ -22,6 +25,10 @@ class GetInTouch extends Component {
             this.setState({lastName: input})
         } else if (id === "email") {
             this.setState({email: input})
+        } else if (id === "phoneNumber") {
+            this.setState({phoneNumber: input})
+        } else if (id === "zipCode") {
+            this.setState({zipCode: input})
         }
     }
 
@@ -31,6 +38,8 @@ class GetInTouch extends Component {
             first_name: this.state.firstName,
             last_name: this.state.lastName,
             email: this.state.email,
+            phone_number: this.state.phoneNumber,
+            zip_code: this.state.zipCode,
             account_type: 1,
             password: "1234"
         }
@@ -50,16 +59,30 @@ class GetInTouch extends Component {
         
         return(
             <div>
-                Get in touch!
-                <form>
-                    <label>First Name:</label>
-                    <input type="text" id="firstName" onChange={this.updateFormState}></input>
-                    <label>Last Name:</label>
-                    <input type="text" id="lastName" onChange={this.updateFormState}></input>
-                    <label>Email:</label>
-                    <input type="text" id="email" onChange={this.updateFormState}></input>
-                    <input type="submit" onClick={this.createNewLead}></input>
-                </form>
+                <p style={{textAlign: "center", paddingTop: 25, fontSize: 50    }}>Get in touch!</p>
+                <Form style={{padding: "0px 500px 0px 500px"}}>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>First Name:</label>
+                        <input type="text" id="firstName" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>Last Name:</label>
+                        <input type="text" id="lastName" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>Email:</label>
+                        <input type="text" id="email" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>Phone Number:</label>
+                        <input type="text" id="phoneNumber" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>Zip Code:</label>
+                        <input type="text" id="zipCode" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Button primary type="submit" onClick={this.createNewLead}>Submit</Button>
+                </Form>
             </div>
         )
     }

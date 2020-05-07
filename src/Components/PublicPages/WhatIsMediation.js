@@ -9,7 +9,7 @@ function WhatIsMediation() {
                 <Grid.Row>
                     <Grid.Column>
                         <p style={{fontSize: 50}}>What is mediation? </p>
-                        <p style={{fontSize: 20}}>
+                        <p style={{fontSize: 20, paddingTop: 15}}>
                             Mediation is a conflict resolution process in which mediators help participants have a difficult conversation, 
                             get clear about what’s important to everyone, 
                             and make decisions that meet the needs of those involved. 
