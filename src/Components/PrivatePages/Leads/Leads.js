@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router'
 import LeadDisplay from './LeadDisplay.js'
 import LeadEdit from './LeadEdit.js'
+ 
 
 class Leads extends Component {
 
@@ -69,7 +70,7 @@ class Leads extends Component {
         }
         
         return(
-            <div>
+            <div style={{padding: "0px 200px 0px 200px", fontSize: 25}}>
                 {this.state.edit ? 
                     <LeadEdit currentLead={this.state.currentLead} switchEditMode={this.switchEditMode} updateLead={this.updateLead} /> 
                     : 
@@ -77,12 +78,12 @@ class Leads extends Component {
                 }
                 <br />
                 {this.state.edit ? 
-                    <button onClick={this.switchEditMode}>Display</button> 
+                    <button secondary onClick={this.switchEditMode}>Display</button> 
                     : 
-                    <button onClick={this.switchEditMode}>Edit</button>
+                    <button secondary onClick={this.switchEditMode}>Edit</button>
                 }
-                <button onClick={this.upgradeToClient}>Upgrade to client</button>
-                <button onClick={this.deleteLead}>Delete lead</button>
+                <button secondary onClick={this.upgradeToClient}>Upgrade to client</button>
+                <button secondary onClick={this.deleteLead}>Delete lead</button>
             </div>
         )
     }

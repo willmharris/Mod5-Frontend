@@ -58,7 +58,7 @@ class Cases extends Component {
         }
         
         return(
-            <div>
+            <div style={{padding: "0px 200px 0px 200px", fontSize: 25}}>
                 {this.state.edit ? 
                     <CaseEdit currentCase={this.state.currentCase} changeEditMode={this.changeEditMode} updateCase={this.updateCase} /> 
                     : 

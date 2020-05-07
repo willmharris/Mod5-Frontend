@@ -71,13 +71,13 @@ class Clients extends Component {
         }
         
         return(
-            <div>
+            <div style={{padding: "0px 200px 0px 200px", fontSize: 25}}>
                 {this.state.edit ? 
                     <ClientEdit currentClient={this.state.currentClient} changeEditMode={this.changeEditMode} updateClient={this.updateClient} /> 
                     : 
                     <ClientDisplay currentClient={this.state.currentClient} currentClientCases={this.state.currentClientCases}/>
                 }
-                <br />
+                <br /> 
                 {this.state.edit ? 
                     <button onClick={this.changeEditMode}>Display</button> 
                     : 

@@ -65,16 +65,16 @@ class ClientEdit extends Component {
                     <input type="text" id="firstName" value={this.state.firstName} onChange={this.updateFormState}></input>
                     <label>Last Name:</label>
                     <input type="text" id="lastName" value={this.state.lastName} onChange={this.updateFormState}></input>
-                    <br />
+                    <br /> <br />
                     <label>Email:</label>
                     <input type="text" id="email" value={this.state.email} onChange={this.updateFormState}></input>
-                    <br />
+                    <br /> <br />
                     <label>Phone Number:</label>
                     <input type="number" id="phoneNumber" value={this.state.phoneNumber} onChange={this.updateFormState}></input>
-                    <br />
+                    <br /> <br />
                     <label>Zip Code:</label>
                     <input type="number" id="zipCode" value={this.state.zipCode} onChange={this.updateFormState}></input>
-                    <br />
+                    <br /> <br />
                     <input type="submit" onClick={this.editClient}></input>
                 </form>
             </div>

@@ -8,15 +8,15 @@ function CaseDisplay(props) {
             {props.currentCase ?
                 <div>
                     Status: {props.currentCase.active? "Active" : "Inactive"}
-                    <br />
+                    <br /> <br />
                     Planned date: {props.currentCase.planned_date ? props.currentCase.planned_date.substring(0, 10) : "None" }
-                    <br />
+                    <br /> <br />
                     Planned location: {props.currentCase.planned_location ? props.currentCase.planned_location : "None"}
-                    <br />
+                    <br /> <br />
                     Confirmed date: {props.currentCase.confirmed_date ? props.currentCase.confirmed_date.substring(0, 10) : "None" }
-                    <br />
+                    <br /> <br />
                     Confirmed location: {props.currentCase.confirmed_location ? props.currentCase.confirmed_location : "None"}
-                    <br />
+                    <br /> <br />
                 </div>
                 :
                 null

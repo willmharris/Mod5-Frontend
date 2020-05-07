@@ -24,7 +24,7 @@ class YourCase extends Component {
    
     render() {
         return(
-            <div>
+            <div style={{padding: "0px 200px 0px 200px", fontSize: 25}}>
                 {this.state.cases ?
                     <CaseDisplay currentCase={this.state.currentCase} currentUserCases={this.state.currentUserCases} currentCaseClients={this.state.currentCaseClients}/>
                     :

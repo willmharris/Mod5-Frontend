@@ -77,19 +77,19 @@ class CaseEdit extends Component {
                         :
                         <input type="checkbox" onChange={this.activate}></input>
                     }
-                    <br />
+                    <br /> <br />
                     <label>Planned Date: {this.state.plannedDate ? this.state.plannedDate.substring(0, 10) : null} </label>
                     <input type="date" id="plannedDate" onChange={this.updateFormState}></input>
-                    <br />
+                    <br /> <br />
                     <label>Planned Location:</label>
                     <input type="text" id="plannedLocation" value={this.state.plannedLocation} onChange={this.updateFormState}></input>
-                    <br />
+                    <br /> <br />
                     <label>Confirmed Date: {this.state.confirmedDate ? this.state.confirmedDate.substring(0, 10) : null} </label>
                     <input type="date" id="confirmedDate" onChange={this.updateFormState}></input>
-                    <br />
+                    <br /> <br />
                     <label>Confirmed Location:</label>
                     <input type="text" id="confirmedLocation" value={this.state.confirmedLocation} onChange={this.updateFormState}></input>
-                    <br />
+                    <br /> <br />
                     <input type="submit" onClick={this.editCase}></input>
                 </form>
             </div>
