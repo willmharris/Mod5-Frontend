@@ -70,7 +70,7 @@ class Leads extends Component {
         }
         
         return(
-            <div style={{padding: "0px 200px 0px 200px", fontSize: 25}}>
+            <div style={{padding: "50px 0px 0px 500px", fontSize: 25}}>
                 {this.state.edit ? 
                     <LeadEdit currentLead={this.state.currentLead} switchEditMode={this.switchEditMode} updateLead={this.updateLead} /> 
                     : 

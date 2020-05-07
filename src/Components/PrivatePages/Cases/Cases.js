@@ -58,7 +58,7 @@ class Cases extends Component {
         }
         
         return(
-            <div style={{padding: "0px 200px 0px 200px", fontSize: 25}}>
+            <div style={{padding: "0px 0px 0px 500px", fontSize: 25}}>
                 {this.state.edit ? 
                     <CaseEdit currentCase={this.state.currentCase} changeEditMode={this.changeEditMode} updateCase={this.updateCase} /> 
                     : 
@@ -75,10 +75,6 @@ class Cases extends Component {
                 <br />
                 <p>Clients:</p>
                 <UserCasesContainer admin={this.state.admin} clients={this.props.clients} userCases={this.props.userCases} id={this.state.id} />
-                <br />
-                <br />
-                <p>Sessions:</p>
-                <SessionsContainer admin={this.state.admin} sessions={this.props.sessions} id={this.state.id} />
                 
             </div>
         )

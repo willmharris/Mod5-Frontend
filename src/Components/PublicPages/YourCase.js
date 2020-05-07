@@ -24,7 +24,7 @@ class YourCase extends Component {
    
     render() {
         return(
-            <div style={{padding: "0px 200px 0px 200px", fontSize: 25}}>
+            <div style={{padding: "0px 0px 0px 500px", fontSize: 25}}>
                 {this.state.cases ?
                     <CaseDisplay currentCase={this.state.currentCase} currentUserCases={this.state.currentUserCases} currentCaseClients={this.state.currentCaseClients}/>
                     :
@@ -35,14 +35,6 @@ class YourCase extends Component {
                 <p>Participants:</p>
                 {this.state.cases ?
                     <UserCasesContainer admin={this.state.admin} clients={this.state.clients} userCases={this.state.userCases} id={this.state.currentCaseId} />
-                    :
-                    null
-                }
-                <br />
-                <br />
-                <p>Sessions:</p>
-                {this.state.cases ?
-                    <SessionsContainer admin={this.state.admin} sessions={this.state.sessions} id={this.state.currentCaseId} />
                     :
                     null
                 }
