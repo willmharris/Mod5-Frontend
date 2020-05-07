@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Grid, Button, Card } from 'semantic-ui-react'
-import './AdminHome.css'
 
 class AdminHome extends Component {
     

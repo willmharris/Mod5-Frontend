@@ -75,11 +75,11 @@ class GetInTouch extends Component {
                     </Form.Field>
                     <Form.Field>
                         <label style={{fontSize: 20}}>Phone Number:</label>
-                        <input type="text" id="phoneNumber" onChange={this.updateFormState}></input>
+                        <input type="number" id="phoneNumber" onChange={this.updateFormState}></input>
                     </Form.Field>
                     <Form.Field>
                         <label style={{fontSize: 20}}>Zip Code:</label>
-                        <input type="text" id="zipCode" onChange={this.updateFormState}></input>
+                        <input type="number" id="zipCode" onChange={this.updateFormState}></input>
                     </Form.Field>
                     <Button primary type="submit" onClick={this.createNewLead}>Submit</Button>
                 </Form>

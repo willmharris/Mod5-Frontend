@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router'
+import { Button, Form } from 'semantic-ui-react'
 
 class NewLead extends Component {
     
@@ -69,29 +70,35 @@ class NewLead extends Component {
         
         return(
             <div>
-                <form>
-                    <label>First Name:</label>
-                    <input type="text" id="firstName" onChange={this.updateFormState}></input>
-                    <label>Last Name:</label>
-                    <input type="text" id="lastName" onChange={this.updateFormState}></input>
-                    <br />
-                    <label>Call scheduled?</label>
-                    <input type="checkbox" onChange={this.callScheduled}></input>
-                    <br />
-                    <label>Email:</label>
-                    <input type="text" id="email" onChange={this.updateFormState}></input>
-                    <br />
-                    <label>Phone Number:</label>
-                    <input type="number" id="phoneNumber" onChange={this.updateFormState}></input>
-                    <br />
-                    <label>Zip Code:</label>
-                    <input type="number" id="zipCode" onChange={this.updateFormState}></input>
-                    <br />
-                    <input type="submit" onClick={this.createNewLead}></input>
-                </form>
+                <p style={{textAlign: "center", paddingTop: 25, fontSize: 50 }}>Create a new lead</p>
+                <Form style={{padding: "0px 500px 0px 500px"}}>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>First Name:</label>
+                        <input type="text" id="firstName" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>Last Name:</label>
+                        <input type="text" id="lastName" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>Email:</label>
+                        <input type="text" id="email" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>Phone Number:</label>
+                        <input type="number" id="phoneNumber" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>Zip Code:</label>
+                        <input type="number" id="zipCode" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Button primary type="submit" onClick={this.createNewLead}>Submit</Button>
+                </Form>
             </div>
         )
     }
 }
 
 export default NewLead
+
+
