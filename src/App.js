@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route, NavLink, Redirect} from 'react-router-dom'
+// Cookies
 import { withCookies } from 'react-cookie'
 // Public pages
 import Home from "./Components/PublicPages/Home.js"
@@ -13,12 +14,15 @@ import YourCase from "./Components/PublicPages/YourCase.js"
 import AdminContainer from "./Components/PrivatePages/AdminContainer.js"
 // Semantic 
 import { Menu } from 'semantic-ui-react'
+// Alert provider
+import { useAlert } from 'react-alert'
 
 
 
 function App(props) {
   
   const { cookies } = props
+  const alert = useAlert()
 
   function setUser(user) {
     cookies.set('id', user["id"], { path: '/' })
@@ -28,7 +32,7 @@ function App(props) {
   function logout() {
     cookies.remove('id')
     cookies.remove('accountType')
-    alert("You have been logged out")
+    alert.show("You have logged out")
   }
 
   return (
