@@ -1,5 +1,6 @@
 import React, { Component }  from 'react'
 import { Redirect } from 'react-router-dom'
+import { Button, Form } from 'semantic-ui-react'
 
 class Login extends Component {
     
@@ -62,13 +63,18 @@ class Login extends Component {
 
         return(
             <div>
-                <form>
-                    <label>Email:</label>
-                    <input id="email" type="text" onChange={this.updateFormState}></input>
-                    <label>Password:</label>
-                    <input id="password" type="text" onChange={this.updateFormState}></input>
-                    <input type="submit" onClick={this.validate}></input>
-                </form>
+                <p style={{textAlign: "center", paddingTop: 25, fontSize: 50 }}>Log in to your account</p>
+                <Form style={{padding: "0px 500px 0px 500px"}}>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>Email:</label>
+                        <input type="text" id="email" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Form.Field>
+                        <label style={{fontSize: 20}}>Password:</label>
+                        <input type="text" id="password" onChange={this.updateFormState}></input>
+                    </Form.Field>
+                    <Button primary type="submit" onClick={this.validate}>Log in</Button>
+                </Form>
             </div>
         )
     }

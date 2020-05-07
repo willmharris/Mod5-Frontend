@@ -59,7 +59,7 @@ class GetInTouch extends Component {
         
         return(
             <div>
-                <p style={{textAlign: "center", paddingTop: 25, fontSize: 50    }}>Get in touch!</p>
+                <p style={{textAlign: "center", paddingTop: 25, fontSize: 50 }}>Get in touch!</p>
                 <Form style={{padding: "0px 500px 0px 500px"}}>
                     <Form.Field>
                         <label style={{fontSize: 20}}>First Name:</label>
