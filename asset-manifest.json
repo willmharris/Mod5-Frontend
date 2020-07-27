@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Mod5-Frontend/static/css/main.70700e87.chunk.css",
+    "main.js": "/Mod5-Frontend/static/js/main.2f93b40b.chunk.js",
+    "main.js.map": "/Mod5-Frontend/static/js/main.2f93b40b.chunk.js.map",
+    "runtime-main.js": "/Mod5-Frontend/static/js/runtime-main.33737f0a.js",
+    "runtime-main.js.map": "/Mod5-Frontend/static/js/runtime-main.33737f0a.js.map",
+    "static/js/2.eca16027.chunk.js": "/Mod5-Frontend/static/js/2.eca16027.chunk.js",
+    "static/js/2.eca16027.chunk.js.map": "/Mod5-Frontend/static/js/2.eca16027.chunk.js.map",
+    "index.html": "/Mod5-Frontend/index.html",
+    "precache-manifest.18a46e534d37feb7a729b17ec9fb531f.js": "/Mod5-Frontend/precache-manifest.18a46e534d37feb7a729b17ec9fb531f.js",
+    "service-worker.js": "/Mod5-Frontend/service-worker.js",
+    "static/css/main.70700e87.chunk.css.map": "/Mod5-Frontend/static/css/main.70700e87.chunk.css.map",
+    "static/js/2.eca16027.chunk.js.LICENSE.txt": "/Mod5-Frontend/static/js/2.eca16027.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.33737f0a.js",
+    "static/js/2.eca16027.chunk.js",
+    "static/css/main.70700e87.chunk.css",
+    "static/js/main.2f93b40b.chunk.js"
+  ]
+}
