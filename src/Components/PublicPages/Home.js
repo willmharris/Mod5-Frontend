@@ -18,7 +18,7 @@ export default function Home() {
                 </div>
             </Grid.Column>
             <Grid.Column style={{fontSize: 30, paddingLeft: 20}}>
-                <Image size='large' src="https://news.stlpublicradio.org/sites/kwmu/files/styles/medium/public/201712/12047_DK_Mediation_Illus.png" />
+                <Image size='large' src="https://juliuslawoffices.com/wp-content/uploads/2016/12/Myths-About-Mediation.png" />
                 <br />
                 <br />
                 <br />

@@ -20,11 +20,11 @@ class ScheduleACall extends Component {
                         <Grid.Row style={{paddingLeft:200}}>
                             <p style={{fontSize: 45}}>Let us know what time works best for you!</p>
                         </Grid.Row>
-                        <Grid.Row style={{paddingTop: 75, paddingLeft: 400}}>      
-                            <Button primary style={{fontSize: 45}} onClick={() => this.setState({showCalender: true})}>Schedule a call</Button>
+                        <Grid.Row style={{paddingTop: 75, paddingLeft: 300}}>      
+                            <Button primary style={{fontSize: 45}} onClick={() => this.setState({showCalender: true})}>Schedule a 15-minute Call</Button>
                         </Grid.Row>
                         <Grid.Row style={{paddingLeft: 500, paddingTop: 100}}>
-                            <NavLink  to="/" ><Button secondary style={{fontSize: 20}}>Return to homepage</Button></NavLink>
+                            <NavLink  to="/" ><Button secondary style={{fontSize: 20}}>Return to Homepage</Button></NavLink>
                         </Grid.Row>
                     </Grid>
                 }       

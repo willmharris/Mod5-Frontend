@@ -63,7 +63,7 @@ class Login extends Component {
 
         return(
             <div>
-                <p style={{textAlign: "center", paddingTop: 25, fontSize: 50 }}>Log in to your account</p>
+                <p style={{textAlign: "center", paddingTop: 25, fontSize: 50 }}>Login</p>
                 <Form style={{padding: "0px 500px 0px 500px"}}>
                     <Form.Field>
                         <label style={{fontSize: 20}}>Email:</label>
@@ -73,7 +73,7 @@ class Login extends Component {
                         <label style={{fontSize: 20}}>Password:</label>
                         <input type="text" id="password" onChange={this.updateFormState}></input>
                     </Form.Field>
-                    <Button primary type="submit" onClick={this.validate}>Log in</Button>
+                    <Button primary type="submit" onClick={this.validate}>Login</Button>
                 </Form>
             </div>
         )
