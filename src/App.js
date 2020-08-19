@@ -55,6 +55,7 @@ function App(props) {
         </Menu>
         <React.Fragment>
           <Route exact path="/" render={Home} />
+          <Route exact path="/Mod5-Frontend" render={Home} />
           <Route exact path="/what-is-mediation" render={WhatIsMediation} />
           <Route exact path="/get-in-touch" render={() => <GetInTouch />} />
           <Route exact path="/schedule-a-call" render={() => <ScheduleACall />} />
