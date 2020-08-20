@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Button } from 'semantic-ui-react'
 
-function WhatIsMediation() {
+function OurCoreValues() {
     return(
         <div>
             <Grid columns={2} rows={2} style={{paddingLeft: 75, paddingTop: 100}}>
@@ -24,11 +24,11 @@ function WhatIsMediation() {
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row style={{paddingTop: 100}}>
-                    <NavLink to="/get-in-touch"><p style={{fontSize: 35, paddingLeft:230}}>Get in touch with us to see if mediation is right for you!</p></NavLink>
+                    <Button><NavLink to="/get-in-touch"><p style={{fontSize: 35, paddingLeft:230}}>Get in touch with us to see if mediation is right for you!</p></NavLink></Button>
                 </Grid.Row>
             </Grid>
         </div>
     )
 }
 
-export default WhatIsMediation
+export default OurCoreValues

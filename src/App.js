@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, NavLink, Redirect} from 'react-router-d
 import { withCookies } from 'react-cookie'
 // Public pages
 import Home from "./Components/PublicPages/Home.js"
-import WhatIsMediation from "./Components/PublicPages/WhatIsMediation.js"
+import OurCoreValues from "./Components/PublicPages/OurCoreValues.js"
 import GetInTouch from "./Components/PublicPages/GetInTouch.js"
 import ScheduleACall from "./Components/PublicPages/ScheduleACall.js"
 import Login from "./Components/PublicPages/Login.js"
@@ -40,7 +40,7 @@ function App(props) {
       <Router>
         <Menu>  
           <NavLink to="/" exact> <Menu.Item>Homepage </Menu.Item></NavLink>
-          <NavLink to="/what-is-mediation" exact><Menu.Item>What Is Mediation? </Menu.Item></NavLink>
+          <NavLink to="/what-is-mediation" exact><Menu.Item>Our Core Values </Menu.Item></NavLink>
           <NavLink to="/get-in-touch" exact><Menu.Item>Get In Touch</Menu.Item></NavLink>
           <NavLink to="/schedule-a-call" exact><Menu.Item>Schedule A Call</Menu.Item></NavLink>
           <NavLink to="/your-case" exact><Menu.Item>Your Case </Menu.Item></NavLink>
@@ -56,7 +56,7 @@ function App(props) {
         <React.Fragment>
           <Route exact path="/" render={Home} />
           <Route exact path="/Mod5-Frontend" render={Home} />
-          <Route exact path="/what-is-mediation" render={WhatIsMediation} />
+          <Route exact path="/what-is-mediation" render={OurCoreValues} />
           <Route exact path="/get-in-touch" render={() => <GetInTouch />} />
           <Route exact path="/schedule-a-call" render={() => <ScheduleACall />} />
           <Route exact path="/login" render={() => <Login setUser={setUser}/>} />
