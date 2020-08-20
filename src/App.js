@@ -40,10 +40,10 @@ function App(props) {
       <Router>
         <Menu>  
           <NavLink to="/" exact> <Menu.Item>Homepage </Menu.Item></NavLink>
-          <NavLink to="/what-is-mediation" exact><Menu.Item>What is mediation </Menu.Item></NavLink>
-          <NavLink to="/get-in-touch" exact><Menu.Item>Get in touch</Menu.Item></NavLink>
-          <NavLink to="/schedule-a-call" exact><Menu.Item>Schedule a call</Menu.Item></NavLink>
-          <NavLink to="/your-case" exact><Menu.Item>Your case </Menu.Item></NavLink>
+          <NavLink to="/what-is-mediation" exact><Menu.Item>What Is Mediation? </Menu.Item></NavLink>
+          <NavLink to="/get-in-touch" exact><Menu.Item>Get In Touch</Menu.Item></NavLink>
+          <NavLink to="/schedule-a-call" exact><Menu.Item>Schedule A Call</Menu.Item></NavLink>
+          <NavLink to="/your-case" exact><Menu.Item>Your Case </Menu.Item></NavLink>
           <NavLink to="/admin" exact><Menu.Item>Admin</Menu.Item></NavLink>
           <Menu.Menu position="right">
             {cookies.get('id') ?
