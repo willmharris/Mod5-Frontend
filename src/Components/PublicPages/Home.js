@@ -22,7 +22,7 @@ export default function Home() {
                 <br />
                 <br />
                 <br />
-                <Button style={{paddingLeft: 50, fontSize: 40}}><NavLink to="/what-is-mediation">Learn more about us </NavLink></Button>
+                <Button style={{paddingLeft: 50, fontSize: 40}}><NavLink to="/what-is-mediation">Learn more about us BUDDY </NavLink></Button>
             </Grid.Column>
         </Grid>
         
