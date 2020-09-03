@@ -54,13 +54,12 @@ function App(props) {
           </Menu.Menu>
         </Menu>
         <React.Fragment>
-          <Route exact path="/" render={Home} />
           <Route exact path="/Mod5-Frontend" render={Home} />
-          <Route exact path="/what-is-mediation" render={OurCoreValues} />
-          <Route exact path="/get-in-touch" render={() => <GetInTouch />} />
-          <Route exact path="/schedule-a-call" render={() => <ScheduleACall />} />
-          <Route exact path="/login" render={() => <Login setUser={setUser}/>} />
-          <Route path="/your-case" render={() => { 
+          <Route exact path="/Mod5-Frontend/what-is-mediation" render={OurCoreValues} />
+          <Route exact path="/Mod5-Frontend/get-in-touch" render={() => <GetInTouch />} />
+          <Route exact path="/Mod5-Frontend/schedule-a-call" render={() => <ScheduleACall />} />
+          <Route exact path="/Mod5-Frontend/login" render={() => <Login setUser={setUser}/>} />
+          <Route path="/Mod5-Frontend/your-case" render={() => { 
             if (cookies.get('accountType') === "2") {
               return <YourCase cookies={props.cookies} />
             } else {

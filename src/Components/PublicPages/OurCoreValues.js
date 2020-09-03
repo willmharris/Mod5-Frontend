@@ -24,7 +24,7 @@ function OurCoreValues() {
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row style={{paddingTop: 100}}>
-                    <Button><NavLink to="/get-in-touch"><p style={{fontSize: 35, paddingLeft:230}}>Get in touch with us to see if mediation is right for you!</p></NavLink></Button>
+                    <Button><NavLink to="/Mod5-Frontend/get-in-touch"><p style={{fontSize: 35, paddingLeft:230}}>Get in touch with us to see if mediation is right for you!</p></NavLink></Button>
                 </Grid.Row>
             </Grid>
         </div>
