@@ -22,7 +22,7 @@ export default function Home() {
                 <br />
                 <br />
                 <br />
-                <Button style={{paddingLeft: 50, fontSize: 40}}><NavLink to="/Mod5-Frontend/what-is-mediation">Learn more about us BUDDY </NavLink></Button>
+                <Button style={{paddingLeft: 50, fontSize: 40}}><NavLink to="/Mod5-Frontend/what-is-mediation">Learn more about us</NavLink></Button>
             </Grid.Column>
         </Grid>
         
