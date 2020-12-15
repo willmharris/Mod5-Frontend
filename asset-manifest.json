@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Mod5-Frontend/static/css/main.70700e87.chunk.css",
-    "main.js": "/Mod5-Frontend/static/js/main.3a288c47.chunk.js",
-    "main.js.map": "/Mod5-Frontend/static/js/main.3a288c47.chunk.js.map",
+    "main.js": "/Mod5-Frontend/static/js/main.6453864c.chunk.js",
+    "main.js.map": "/Mod5-Frontend/static/js/main.6453864c.chunk.js.map",
     "runtime-main.js": "/Mod5-Frontend/static/js/runtime-main.33737f0a.js",
     "runtime-main.js.map": "/Mod5-Frontend/static/js/runtime-main.33737f0a.js.map",
     "static/js/2.59fdcc25.chunk.js": "/Mod5-Frontend/static/js/2.59fdcc25.chunk.js",
     "static/js/2.59fdcc25.chunk.js.map": "/Mod5-Frontend/static/js/2.59fdcc25.chunk.js.map",
     "index.html": "/Mod5-Frontend/index.html",
-    "precache-manifest.a703fe5f1b1df024a1bf1c11e8f1891b.js": "/Mod5-Frontend/precache-manifest.a703fe5f1b1df024a1bf1c11e8f1891b.js",
+    "precache-manifest.70adb29367a40f078518309162c5fe97.js": "/Mod5-Frontend/precache-manifest.70adb29367a40f078518309162c5fe97.js",
     "service-worker.js": "/Mod5-Frontend/service-worker.js",
     "static/css/main.70700e87.chunk.css.map": "/Mod5-Frontend/static/css/main.70700e87.chunk.css.map",
     "static/js/2.59fdcc25.chunk.js.LICENSE.txt": "/Mod5-Frontend/static/js/2.59fdcc25.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.33737f0a.js",
     "static/js/2.59fdcc25.chunk.js",
     "static/css/main.70700e87.chunk.css",
-    "static/js/main.3a288c47.chunk.js"
+    "static/js/main.6453864c.chunk.js"
   ]
 }
