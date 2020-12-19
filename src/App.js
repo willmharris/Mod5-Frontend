@@ -59,7 +59,7 @@ function App(props) {
           <Route exact path="/get-in-touch" render={() => <GetInTouch />} />
           <Route exact path="/schedule-a-call" render={() => <ScheduleACall />} />
           <Route exact path="/login" render={() => <Login setUser={setUser}/>} />
-          <Route path="/Mod5-Frontend/your-case" render={() => { 
+          <Route path="/your-case" render={() => { 
             if (cookies.get('accountType') === "2") {
               return <YourCase cookies={props.cookies} />
             } else {
